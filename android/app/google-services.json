@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1069290044591",
+    "project_id": "live-tv-b37f7",
+    "storage_bucket": "live-tv-b37f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069290044591:android:8874f72cef38ea3440e85a",
+        "android_client_info": {
+          "package_name": "com.himel.safe_navigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069290044591-v2m9f135sj5um7ka20e8vkbvfl8f0ci8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-ug1PCFVB3Bu6zFD7f2RXz-TNkeUrUpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069290044591-v2m9f135sj5um7ka20e8vkbvfl8f0ci8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
