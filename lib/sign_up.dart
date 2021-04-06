@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {
@@ -15,10 +16,12 @@ class Sign extends StatefulWidget {
 }
 
 class _SignState extends State<Sign> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   final nameController = TextEditingController();
   final passController = TextEditingController();
   final emailController = TextEditingController();
   final mobileController = TextEditingController();
+
   @override
   void dispose() {
     nameController.dispose();
@@ -36,6 +39,15 @@ class _SignState extends State<Sign> {
         title: Text("Sign Up"),
         backgroundColor: Colors.black12,
         brightness: Brightness.dark,
+        leading: IconButton(
+          icon: Icon(Icons.chevron_left),
+          //color: Colors.black,
+          onPressed: () {
+            //Navigator.pop(context); //returns black screen
+            //Navigator.of(context).pop();
+            Navigator.of(context, rootNavigator: true).pop(context);
+          },
+        ),
       ),
       body: Column(
         children: [
@@ -192,9 +204,17 @@ class _SignState extends State<Sign> {
           SizedBox(
             height: 20,
           ),
-
+          ElevatedButton(
+            onPressed: signUp,
+            child: Text('Sign up'),style: ButtonStyle(
+          ),
+          )
         ],
       ),
     );
+  }
+
+  void signUp() {
+    auth.createUserWithEmailAndPassword(email: emailController.text, password: passController.text);
   }
 }

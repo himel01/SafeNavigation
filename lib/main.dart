@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:safe_navigation/sign_up.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -11,10 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Safe Navigation'),
+      home: MyHomePage(title: 'Sign In'),
     );
   }
 }
@@ -31,6 +32,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final nameController = TextEditingController();
   final passController = TextEditingController();
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   void dispose() {
@@ -45,6 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        brightness: Brightness.dark,
+        backgroundColor: Colors.black12,
       ),
       body: Column(
         children: [
@@ -136,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 20,
               ),
               InkWell(
-                onTap: (){
+                onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignUp()),
